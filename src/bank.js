@@ -1,6 +1,6 @@
 function Bank(){
   this.balance = 0;
-  this.transactions = [];
+  this.transactions = ['date || credit || debit || balance'];
 };
 
 Bank.prototype.currentBalance = function(){
@@ -20,6 +20,5 @@ Bank.prototype.withdraw = function(money = 0){
 }
 
 Bank.prototype.printStatement = function(){
- var header = 'date || credit || debit || balance';
-  return (header + '\n' + this.transactions.toString())
+  return (this.transactions.join('\n'))
 }
