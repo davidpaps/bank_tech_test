@@ -7,7 +7,7 @@ describe('Bank', function() {
   });
   
     it('Starting balance has £0', function() {
-      expect(bank.balance).toEqual(0);
+      expect(bank.currentBalance()).toEqual(0);
     });
 
 
