@@ -18,17 +18,10 @@ Bank.prototype.deposit = function(money){
   this._updateStatement(money)
 }
 
-Bank.prototype.processingDate = function(){
-  var date = new Date();
-  var dd = date.getDate();
-  var mm = date.getMonth() + 1;
-  var yyyy = date.getFullYear();
-  return date = dd + '/' + mm + '/' + yyyy
-}
 
 Bank.prototype.withdraw = function(money){
   this.balance -= money;
-  this.transactions.push(`14/01/2014 || || ${money.toFixed(2)} || ${this.currentBalance().toFixed(2)}`);
+  this.transactions.push(`${this._processingDate()} || || ${money.toFixed(2)} || ${this.currentBalance().toFixed(2)}`);
 }
 
 Bank.prototype.printStatement = function(){
@@ -37,10 +30,13 @@ Bank.prototype.printStatement = function(){
 }
 
 Bank.prototype._updateStatement = function(money){
-  if (this.transactions.length < 1) {
-    this.transactionHistory().push(`10/01/2014 || ${money.toFixed(2)} || || ${this.currentBalance().toFixed(2)}`);
-  }
-  else {
-    this.transactionHistory().push(`13/01/2014 || ${money.toFixed(2)} || || ${this.currentBalance().toFixed(2)}`);
-  }
+    this.transactionHistory().push(`${this._processingDate()} || ${money.toFixed(2)} || || ${this.currentBalance().toFixed(2)}`);
+}
+
+Bank.prototype._processingDate = function(){
+  var date = new Date();
+  var dd = String(date.getDate()).padStart(2, '0');
+  var mm = String(date.getMonth() + 1).padStart(2, '0');
+  var yyyy = date.getFullYear();
+  return date = dd + '/' + mm + '/' + yyyy
 }
