@@ -26,4 +26,13 @@ describe('Bank', function() {
       expect(bank.currentBalance()).toEqual(500);
     })
 
+    it('Can print the header of the statement', function(){
+      expect(bank.printStatement()).toBe('date || credit || debit || balance' + '\n');
+    })
+
+    it('Can print put a deposit transaction', function(){
+      bank.deposit(1000)
+      expect(bank.printStatement()).toBe('date || credit || debit || balance' + '\n' + '10/01/2014 || 1000.00|| || 1000.00')
+    })
+
 });
