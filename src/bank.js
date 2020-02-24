@@ -9,6 +9,10 @@ Bank.prototype.currentBalance = function(){
   return this.balance;
 }
 
+Bank.prototype.transactionHistory = function(){
+  return this.transactions;
+}
+
 Bank.prototype.deposit = function(money){
   this.balance += money;
   var transactionBalance =  this.currentBalance();

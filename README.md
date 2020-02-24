@@ -23,7 +23,7 @@ date || credit || debit || balance
 
 __How to run:__
 - Clone this repo,
-- To run the test suite, right click on the 'SpecRunner.html' file and click 'Copy Path', paste this into the Google Chrome Browser,
+- To run the test suite, right click on the 'SpecRunner.html' file and click 'Copy Path', paste this into the Google Chrome Browser, Jasmine will show the spec data. 
 - Open Chrome Develepor Tools in a Google Chrome Browser (right click - select 'Inspect', click the console tab)
 - In the console type in the following:
 
