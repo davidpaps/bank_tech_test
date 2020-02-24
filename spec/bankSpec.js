@@ -27,16 +27,22 @@ describe('Bank', function() {
     })
 
     it('Can print the header of the statement', function(){
-      expect(bank.printStatement()).toBe('date || credit || debit || balance');
+      expect(bank.printStatement()).toBe('date || credit || debit || balance\n');
     })
 
-    it('Can print put a deposit transaction', function(){
-      bank.deposit(1000)
-      expect(bank.printStatement()).toBe('date || credit || debit || balance\n10/01/2014 || 1000.00 || || 1000.00')
+    it('Can print a deposit transaction', function(){
+      bank.deposit(1000);
+      expect(bank.printStatement()).toBe('date || credit || debit || balance\n10/01/2014 || 1000.00 || || 1000.00');
     })
 
     it('Can print a withdrawal transaction', function(){
-      bank.withdraw(500)
-      expect(bank.printStatement()).toBe('date || credit || debit || balance\n14/01/2014 || || 500.00 || -500.00')
+      bank.withdraw(500);
+      expect(bank.printStatement()).toBe('date || credit || debit || balance\n14/01/2014 || || 500.00 || -500.00');
+    })
+
+    it('Can print a deposit and withdrawal transactions', function(){
+      bank.deposit(1000);
+      bank.withdraw(500);
+      expect(bank.printStatement()).toBe('date || credit || debit || balance\n10/01/2014 || 1000.00 || || 1000.00\n14/01/2014 || || 500.00 || 500.00');
     })
 });
