@@ -1,7 +1,5 @@
-function Bank() {
+function Bank(){
   this.balance = 0;
-  this.depo = [];
-
 };
 
 Bank.prototype.currentBalance = function(){
@@ -9,6 +7,9 @@ Bank.prototype.currentBalance = function(){
 }
 
 Bank.prototype.deposit = function(money){
-
   this.balance += money;
+}
+
+Bank.prototype.withdraw = function(money){
+  this.balance -= money;
 }
