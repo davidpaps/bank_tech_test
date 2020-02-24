@@ -32,7 +32,11 @@ describe('Bank', function() {
 
     it('Can print put a deposit transaction', function(){
       bank.deposit(1000)
-      expect(bank.printStatement()).toBe('date || credit || debit || balance' + '\n' + '10/01/2014 || 1000.00|| || 1000.00')
+      expect(bank.printStatement()).toBe('date || credit || debit || balance' + '\n' + '10/01/2014 || 1000.00 || || 1000.00')
     })
 
+    it('Can print a withdrawal transaction', function(){
+      bank.withdraw(500)
+      expect(bank.printStatement()).toBe('date || credit || debit || balance' + '\n' + '14/01/2014 || || 500.00 || -500.00')
+    })
 });

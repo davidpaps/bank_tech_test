@@ -10,12 +10,13 @@ Bank.prototype.currentBalance = function(){
 Bank.prototype.deposit = function(money = 0){
   this.balance += money;
   var transactionBalance =  this.currentBalance();
-  this.transactions.push(`10/01/2014 || ${money.toFixed(2)}|| || ${transactionBalance.toFixed(2)}`);
+  this.transactions.push(`10/01/2014 || ${money.toFixed(2)} || || ${transactionBalance.toFixed(2)}`);
 }
 
 Bank.prototype.withdraw = function(money = 0){
   this.balance -= money;
-  return this.currentBalance();
+  var transactionBalance =  this.currentBalance();
+  this.transactions.push(`14/01/2014 || || ${money.toFixed(2)} || ${transactionBalance.toFixed(2)}`);
 }
 
 Bank.prototype.printStatement = function(){
