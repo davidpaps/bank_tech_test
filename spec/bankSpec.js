@@ -11,13 +11,18 @@ describe('Bank', function() {
     });
 
     it('Can deposit £1000', function(){
-      bank.deposit(1000)
+      bank.deposit(1000);
       expect(bank.currentBalance()).toEqual(1000);
     })
 
     it('Can withdraw £500', function(){
-      bank.deposit(1000)
-      bank.withdraw(500)
+      bank.withdraw(500);
+      expect(bank.currentBalance()).toEqual(-500);
+    })
+
+    it('Can calculate and keep track of deposit and withdrawals', function(){
+      bank.deposit(1000);
+      bank.withdraw(500);
       expect(bank.currentBalance()).toEqual(500);
     })
 
