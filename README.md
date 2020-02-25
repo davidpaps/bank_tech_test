@@ -8,6 +8,9 @@ __Requirements:__
 - Account statement (date, amount, balance) printing.
 - Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
+__Code Structure:__
+- The code is split accross two constructors, the first 'Account' and the second 'Statement'. The Account constructor takes care of adding and subtracting the user input (deposit and withdraw) from the balance of the account. The Statement constructor then deals with adding a statement line (containing the user inout fro the account). This was the simplest seperation of concerns and makes for clear and easy seperation of dependancies in the code.
+
 __Acceptance criteria:__
 - Given a client makes a deposit of 1000 on 10-01-2012,
 - And a deposit of 2000 on 13-01-2012
@@ -28,22 +31,20 @@ __How to run:__
 - In the console type in the following:
 
 ```
-var statement = new Statement();
-var bank = new Bank(statement);
-bank.deposit(1000);
-bank.deposit(2000);
-bank.withdraw(500);
-bank.printStatement():
-```
+var account = new Account(New Statement);
+account.deposit(1000);
+accountdeposit(2000);
+accountwithdraw(500);
+account.printStatement():
 
-```
 => 
+
 date || credit || debit || balance
 *01/01/2020 || || 500.00 || 2500.00
 *01/01/2020 || 2000.00 || || 3000.00
 *01/01/2020 || 1000.00 || || 1000.00
-```
 
-```
 * denotes real date of user input in the console
 ```
+
+<img src="screenshot.png">
