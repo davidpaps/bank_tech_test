@@ -3,6 +3,7 @@
 function Bank(){
   this.balance = 0;
   this.transactions = [];
+  this.isPositive = true;
 };
 
 Bank.prototype.currentBalance = function(){
@@ -15,22 +16,27 @@ Bank.prototype.transactionHistory = function(){
 
 Bank.prototype.deposit = function(money){
   this.balance += money;
+  this.isPositive = true;
   this._updateStatement(money)
 }
 
-
 Bank.prototype.withdraw = function(money){
   this.balance -= money;
-  this.transactions.push(`${this._processingDate()} || || ${money.toFixed(2)} || ${this.currentBalance().toFixed(2)}`);
+  this.isPositive = false;
+  this._updateStatement(money);
 }
 
 Bank.prototype.printStatement = function(){
   var header = 'date || credit || debit || balance';
-  return (header + '\n' + this.transactions.reverse().join('\n'))
+  return (header + '\n' + this.transactionHistory().reverse().join('\n'))
 }
 
 Bank.prototype._updateStatement = function(money){
-    this.transactionHistory().push(`${this._processingDate()} || ${money.toFixed(2)} || || ${this.currentBalance().toFixed(2)}`);
+    if (this.isPositive === true) {
+      this.transactionHistory().push(`${this._processingDate()} || ${money.toFixed(2)} || || ${this.currentBalance().toFixed(2)}`);
+  } else {
+  this.transactions.push(`${this._processingDate()} || || ${money.toFixed(2)} || ${this.currentBalance().toFixed(2)}`);
+  }
 }
 
 Bank.prototype._processingDate = function(){
