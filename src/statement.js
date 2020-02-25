@@ -10,15 +10,16 @@ Statement.prototype.printStatement = function(){
   return (this.header + '\n' + this.transactions.reverse().join('\n'))
 }
 
-Statement.prototype._updateStatement = function(money, balance){
-    if (this.inCredit) {
-      this.transactions.push(`${this._processingDate()} || ${money.toFixed(2)} || || ${balance.toFixed(2)}`);
-  } else {
-  this.transactions.push(`${this._processingDate()} || || ${money.toFixed(2)} || ${balance.toFixed(2)}`);
-  }
+Statement.prototype.updateDepositStatement = function(money, balance, date = this.processingDate()){
+    this.transactions.push(`${date} || ${money.toFixed(2)} || || ${balance.toFixed(2)}`);
 }
 
-Statement.prototype._processingDate = function(){
+Statement.prototype.updateWithdrawStatement = function(money, balance, date = this.processingDate()){
+  this.transactions.push(`${date} || || ${money.toFixed(2)} || ${balance.toFixed(2)}`);
+}
+
+
+Statement.prototype.processingDate = function(){
   var date = new Date();
   var dd = String(date.getDate()).padStart(2, '0');
   var mm = String(date.getMonth() + 1).padStart(2, '0');

@@ -8,13 +8,13 @@ function Account(statement){
 Account.prototype.deposit = function(money){
   this.balance += money;
   this.statement.inCredit = true;
-  this.statement._updateStatement(money, this.balance)
+  this.statement.updateDepositStatement(money, this.balance)
 }
 
 Account.prototype.withdraw = function(money){
   this.balance -= money;
   this.statement.inCredit = false;
-  this.statement._updateStatement(money, this.balance);
+  this.statement.updateWithdrawStatement(money, this.balance);
 }
 
 Account.prototype.printStatement = function(){

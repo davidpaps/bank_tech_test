@@ -36,3 +36,38 @@ describe('Feature', function(){
 })
 
 
+
+    //   describe('Deposit', function(){
+    //     it('Can deposit £100', function(){
+    //       account.deposit(100);
+    //       expect(account.balance).toEqual(100);
+    //     })
+
+    //     it('Can deposit 2 x £100 and keep track of the current balance', function(){
+    //       account.deposit(100);
+    //       account.deposit(100);
+    //       expect(account.balance).toEqual(200);
+    //     })
+    //   })
+
+    //   describe('Withdraw', function(){
+    //     it('Can withdraw £100', function(){
+    //       account.withdraw(100);
+    //       expect(account.balance).toEqual(-100);
+    //     })
+
+    //     it('Can withdraw 2 x £100 and keep track of the current balance', function(){
+    //       account.withdraw(100);
+    //       account.withdraw(100);
+    //       expect(account.balance).toEqual(-200);
+    //     })
+    //   })
+
+    // it('Can calculate and keep track of deposit and withdrawals', function(){
+    //   account.deposit(1000);
+    //   account.withdraw(500);
+    //   expect(account.balance).toEqual(500);
+    // })
+
+    
+

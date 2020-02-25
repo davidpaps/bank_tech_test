@@ -28,7 +28,8 @@ __How to run:__
 - In the console type in the following:
 
 ```
-var bank = new Bank();
+var statement = new Statement();
+var bank = new Bank(statement);
 bank.deposit(1000);
 bank.deposit(2000);
 bank.withdraw(500);
@@ -38,7 +39,11 @@ bank.printStatement():
 ```
 => 
 date || credit || debit || balance
-14/01/2012 || || 500.00 || 2500.00
-13/01/2012 || 2000.00 || || 3000.00
-10/01/2012 || 1000.00 || || 1000.00
+*01/01/2020 || || 500.00 || 2500.00
+*01/01/2020 || 2000.00 || || 3000.00
+*01/01/2020 || 1000.00 || || 1000.00
+```
+
+```
+* denotes real date of user input in the console
 ```

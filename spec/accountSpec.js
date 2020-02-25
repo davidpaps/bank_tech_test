@@ -6,6 +6,10 @@ describe('Account', function() {
   var account;
 
   beforeEach(function(){
+    // statement = { updateStatement: function(){
+    // }
+
+    // };
     statement = new Statement();
     account = new Account(statement);
   })
