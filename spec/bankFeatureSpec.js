@@ -4,17 +4,19 @@ describe('Feature', function(){
 
   var statement;
   var account;
+  var processingDate;
 
   beforeEach(function(){
     statement = new Statement();
     account = new Account(statement);
+    processingDate = statement._processingDate();
   })
 
   it('Can print out a full statement in reverse order', function(){
     account.deposit(1000);
     account.deposit(2000);
     account.withdraw(500);
-    expect(account.printStatement()).toBe('date || credit || debit || balance\n25/02/2020 || || 500.00 || 2500.00\n25/02/2020 || 2000.00 || || 3000.00\n25/02/2020 || 1000.00 || || 1000.00')
+    expect(account.printStatement()).toBe(`date || credit || debit || balance\n25/02/2020 || || 500.00 || 2500.00\n${processingDate} || 2000.00 || || 3000.00\n${processingDate} || 1000.00 || || 1000.00`)
   })
 
   it('Can calculate and keep track of deposit and withdrawals', function(){
@@ -27,7 +29,7 @@ describe('Feature', function(){
   describe('Deposit', function(){
     it('Can print a deposit transaction', function(){
       account.deposit(1000);
-      expect(account.printStatement()).toBe('date || credit || debit || balance\n25/02/2020 || 1000.00 || || 1000.00');
+      expect(account.printStatement()).toBe(`date || credit || debit || balance\n${processingDate} || 1000.00 || || 1000.00`);
     })
 
     it('Can deposit £100', function(){
@@ -46,7 +48,7 @@ describe('Feature', function(){
   describe('Withdraw', function(){
     it('Can print a withdrawal transaction', function(){
       account.withdraw(500);
-      expect(account.printStatement()).toBe('date || credit || debit || balance\n25/02/2020 || || 500.00 || -500.00');
+      expect(account.printStatement()).toBe(`date || credit || debit || balance\n${processingDate} || || 500.00 || -500.00`);
     })
 
     it('Can withdraw £100', function(){
