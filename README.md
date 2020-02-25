@@ -47,4 +47,4 @@ date || credit || debit || balance
 * denotes real date of user input in the console
 ```
 
-<img src="screenshot.png">
+<img src="images/screenshot.png">
