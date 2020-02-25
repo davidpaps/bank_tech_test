@@ -3,7 +3,7 @@
 function Bank(){
   this.balance = 0;
   this.transactions = [];
-  this.isPositive = true;
+  this.isDeposit = true;
 };
 
 Bank.prototype.currentBalance = function(){
@@ -16,13 +16,13 @@ Bank.prototype.transactionHistory = function(){
 
 Bank.prototype.deposit = function(money){
   this.balance += money;
-  this.isPositive = true;
+  this.isDeposit = true;
   this._updateStatement(money)
 }
 
 Bank.prototype.withdraw = function(money){
   this.balance -= money;
-  this.isPositive = false;
+  this.isDeposit = false;
   this._updateStatement(money);
 }
 
@@ -32,7 +32,7 @@ Bank.prototype.printStatement = function(){
 }
 
 Bank.prototype._updateStatement = function(money){
-    if (this.isPositive === true) {
+    if (this.isDeposit === true) {
       this.transactionHistory().push(`${this._processingDate()} || ${money.toFixed(2)} || || ${this.currentBalance().toFixed(2)}`);
   } else {
   this.transactions.push(`${this._processingDate()} || || ${money.toFixed(2)} || ${this.currentBalance().toFixed(2)}`);
