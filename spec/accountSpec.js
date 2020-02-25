@@ -2,51 +2,53 @@
 
 describe('Account', function() {
 
+  var statement;
   var account;
 
   beforeEach(function(){
-    account = new Account();
+    statement = new Statement();
+    account = new Account(statement);
   })
   
     it('Starting balance has £0', function(){
-      expect(account.currentBalance()).toEqual(0);
+      expect(account.balance).toEqual(0);
     })
 
       describe('Deposit', function(){
         it('Can deposit £100', function(){
           account.deposit(100);
-          expect(account.currentBalance()).toEqual(100);
+          expect(account.balance).toEqual(100);
         })
 
         it('Can deposit 2 x £100 and keep track of the current balance', function(){
           account.deposit(100);
           account.deposit(100);
-          expect(account.currentBalance()).toEqual(200);
+          expect(account.balance).toEqual(200);
         })
       })
 
       describe('Withdraw', function(){
         it('Can withdraw £100', function(){
           account.withdraw(100);
-          expect(account.currentBalance()).toEqual(-100);
+          expect(account.balance).toEqual(-100);
         })
 
         it('Can withdraw 2 x £100 and keep track of the current balance', function(){
           account.withdraw(100);
           account.withdraw(100);
-          expect(account.currentBalance()).toEqual(-200);
+          expect(account.balance).toEqual(-200);
         })
       })
 
     it('Can calculate and keep track of deposit and withdrawals', function(){
       account.deposit(1000);
       account.withdraw(500);
-      expect(account.currentBalance()).toEqual(500);
+      expect(account.balance).toEqual(500);
     })
 
       describe('Print Statement', function(){
         it('Can print the header of the statement', function(){
-          expect(account.printStatement()).toBe('date || credit || debit || balance\n');
+          expect(statement.header).toBe('date || credit || debit || balance');
         })
     
         it('Can print a deposit transaction', function(){
