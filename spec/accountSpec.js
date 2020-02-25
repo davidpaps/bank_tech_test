@@ -6,11 +6,14 @@ describe('Account', function() {
   var account;
 
   beforeEach(function(){
-    // statement = { updateStatement: function(){
-    // }
-
-    // };
-    statement = new Statement();
+    statement = { updateDepositStatement: function(){
+      },
+      updateWithdrawStatement: function(){
+      },
+      printStatement: function(){
+        return " "
+      }
+    };
     account = new Account(statement);
   })
 
@@ -34,7 +37,7 @@ describe('Account', function() {
       
     describe('Print Statement', function(){
       it('Prints an empty statement containing just the header', function(){
-        expect(account.printStatement()).toBe('date || credit || debit || balance\n');
+        expect(account.printStatement()).toBe(" ");
       })
     })
 
