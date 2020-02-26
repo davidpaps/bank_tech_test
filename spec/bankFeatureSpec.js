@@ -16,7 +16,7 @@ describe('Feature', function(){
     account.deposit(1000);
     account.deposit(2000);
     account.withdraw(500);
-    expect(account.printStatement()).toBe(`date || credit || debit || balance\n25/02/2020 || || 500.00 || 2500.00\n${processingDate} || 2000.00 || || 3000.00\n${processingDate} || 1000.00 || || 1000.00`)
+    expect(account.printStatement()).toBe(`date || credit || debit || balance\n${processingDate} || || 500.00 || 2500.00\n${processingDate} || 2000.00 || || 3000.00\n${processingDate} || 1000.00 || || 1000.00`)
   })
 
   it('Can calculate and keep track of deposit and withdrawals', function(){
