@@ -31,7 +31,8 @@ __How to run:__
 - In the console type in the following:
 
 ```
-var account = new Account(New Statement);
+var statement = new Statement();
+var account = new Account(statement);
 account.deposit(1000);
 accountdeposit(2000);
 accountwithdraw(500);

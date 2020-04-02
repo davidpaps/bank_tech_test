@@ -1,6 +1,7 @@
 'use strict';
 
 function Statement(){
+  // this.print = print;
   this.transactions = [];
   this.header = 'date || credit || debit || balance';
 }
