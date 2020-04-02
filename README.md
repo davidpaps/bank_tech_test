@@ -25,11 +25,9 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
----
-
 ## Code Structure:
 
-- The code is split accross two constructors, the first 'Account' and the second 'Statement'. The Account constructor takes care of adding and subtracting the user input (deposit and withdraw) from the balance of the account. The Statement constructor then deals with adding a statement line (containing the user inout from the account). This was the simplest seperation of concerns and makes for clear and easy seperation of dependancies in the code.
+The code is split accross two constructors, the first 'Account' and the second 'Statement'. The Account constructor takes care of adding and subtracting the user input (deposit and withdraw) from the balance of the account. The Statement constructor then deals with adding a statement line (containing the user inout from the account). This was the simplest seperation of concerns and makes for clear and easy seperation of dependancies in the code.
 
 ---
 
